@@ -1,152 +1,159 @@
-# Katkıda Bulunma Rehberi · Contributing Guide
+# 🤝 Katkıda Bulunma · Contributing
+
+> **Söz veriyoruz: tüm PR'lar 24 saat içinde merge edilir.** Hızla büyüyen bir topluluk.
+>
+> **We promise: all PRs merged within 24 hours.** A community moving fast.
+
+---
 
 ## 🇹🇷 Türkçe
 
-Zagros Amanos manifestosuna katkıda bulunmak istediğin için teşekkürler. Bu döküman nasıl katkı yapacağını adım adım anlatır.
+### En hızlı yol
 
-### Hangi katkılar kabul edilir?
+**Sadece fork + edit + PR aç.** Tartışma gerektirmez. Yüksek kalite + iyi niyet = merge.
 
-✅ **Çeviriler** — manifestoyu kendi dilinde aktarmak  
-✅ **Düzeltmeler** — yazım, gramer, eksik referans  
-✅ **Açıklamalar / yorumlar** — `annotations/` klasörüne kişisel veya akademik notlar  
-✅ **Tartışmalar** — `discussions/` klasörüne uzun-form yazılar  
-✅ **Sanat eserleri** — manifestoya ait illüstrasyon, ses kayıtları, video  
-✅ **Web sitesi katkısı** — özgün versiyon [zagrosamanos.com](https://zagrosamanos.com) için öneriler
+```bash
+# 1. Fork et (GitHub UI'dan tek tıkla)
+# 2. Klonla
+git clone https://github.com/SENİN_KULLANICIN/zagros-amanos-manifesto.git
+cd zagros-amanos-manifesto
 
-### Hangi katkılar kabul edilmez?
+# 3. Branch aç
+git checkout -b ozellik/web-reader-search
 
-❌ Nefret söylemi içeren değişiklikler  
-❌ Belirli bir parti/grubu yücelten propagandaya çeviren içerik  
-❌ Telifli üçüncü taraf eserlerini izinsiz dahil etmek  
-❌ Doxxing, kişisel bilgi ifşası
+# 4. Çalış (ne istersen: çeviri, kod, sanat, yorum)
 
-### Çeviri yapacaksan
+# 5. Commit + push
+git add .
+git commit -m "feat: arama özelliği eklendi"
+git push origin ozellik/web-reader-search
 
-1. **`manifesto/translations/[dil-kodu]/`** klasörü oluştur.  
-   Örnekler: `en` (English), `ku` (Kurmancî), `ar` (Arabic), `fa` (Persian), `de` (German), `el` (Greek), `hy` (Armenian), `syr` (Syriac), `fr` (French), `es` (Spanish)
+# 6. GitHub'da Pull Request aç
+```
 
-2. Bölüm bölüm gidebilirsin. Hepsini bitirmek zorunda değilsin.  
-   Örnek dosya isimleri:
-   - `00-preface.md`
-   - `01-introduction.md`
-   - `02-chapter-one.md`
-   - …
+Sonra ne olur? 24 saat içinde:
+- ✅ Otomatik welcome mesajı gelir
+- ✅ Hızlı review
+- ✅ Merge
 
-3. **Markdown formatında** yaz. PDF değil, Word değil, `.md`.
+### Ne tür katkı yapabilirsin?
 
-4. **Header ve yapıyı koru** — orijinal manifestodaki bölüm sıralaması aynı kalsın.
+| Kategori | Klasör | Issue Template |
+|----------|--------|----------------|
+| 🌍 Çeviri | `manifesto/translations/[dil]/` | Translation |
+| ✍️ Yorum | `annotations/` | Annotation |
+| 💬 Tartışma | `discussions/` veya Issue | Discussion |
+| 🛠️ Yazılım/Kod | `tools/[proje-adı]/` | Tool/Code |
+| 🎨 Sanat | `assets/[tür]/` | Art/Media |
+| 🛠️ Düzeltme | her yerde | Correction |
 
-5. **Çevirmen notu** ekleyebilirsin (`> Not: bu kelime kültürel olarak…` gibi).
+### Kod katkısı için
 
-6. Çeviri hâlâ devam ediyorsa `WIP` (Work In Progress) ekle dosya başına.
+- **Hangi dil olursa olsun** — Python, JavaScript, Rust, Go, Swift, Kotlin
+- **Hangi framework olursa olsun** — Astro, Next.js, Hugo, Flutter, React Native
+- **Tek kural:** `tools/[proje-adı]/README.md` yaz, nasıl çalıştırılır anlat
+- **Lisans:** CC0 (kamu malı) — başka lisans kabul edilmez
+- **Bağımlılıklar:** MIT, Apache, BSD gibi uyumlu lisanslar olmalı
 
-### Açıklama (annotation) yazacaksan
+### Çeviri katkısı için
 
-1. **`annotations/`** altına dosya ekle.
-2. Dosya adı: `seninAdin-konu.md` formatında (örn: `mehmet-tarihselbaglam.md`)
-3. Akademik, kişisel, eleştirel — her ton kabul.
-4. Manifesto'dan alıntı yaparken bölüm referansı ver.
+- `manifesto/translations/[ISO-dil-kodu]/` klasörü oluştur
+- Markdown formatında (`00-preface.md`, `01-bolum.md`, vs.)
+- Komple bitirmek zorunda değilsin — bölüm bölüm gönderebilirsin
+- Çeviri sırasında not düşmek istersen: `---` ile ayır, `> Çevirmen notu:` ile başla
 
-### Pull request süreci
+### Sanat katkısı için
 
-1. **Fork** et bu repoyu
-2. Yeni bir **branch** aç: `git checkout -b ku-translation-chapter-1`
-3. Değişikliklerini commit et: `git commit -m "translate chapter 1 to kurmancî"`
-4. **Push** et: `git push origin ku-translation-chapter-1`
-5. GitHub'da **Pull Request** aç
-6. Şablonu doldur (otomatik açılır)
-7. Bekleme süresi: 3-7 gün arası genelde dönülür
-
-### Sorun çıkarsa
-
-Bu repo bir manifestoyu paylaşmak için var, kavga için değil. Anlaşmazlık olursa:
-
-1. **Issues**'a bir konu aç
-2. Karşılıklı saygıyla konuş
-3. Yine de çözülmezse `com@zagrosamanos.com` adresine yaz
+- `assets/[tür]/` altına dosya
+- Yüksek çözünürlük
+- Telifsiz veya kendi eserin
+- Dosya adı: `senin-adın-konu-tarih.uzantı`
 
 ---
 
 ## 🇬🇧 English
 
-Thank you for contributing to the Zagros Amanos manifesto. This document explains how to contribute step by step.
+### Fastest path
 
-### What contributions are welcome?
+**Just fork + edit + PR.** No discussion required. Good quality + good intent = merged.
 
-✅ **Translations** into any language  
-✅ **Corrections** — typos, grammar, missing references  
-✅ **Annotations / commentary** in the `annotations/` folder  
-✅ **Discussions** — long-form pieces in `discussions/`  
-✅ **Art** — illustrations, audio recordings, video relating to the manifesto  
-✅ **Website improvements** — suggestions for [zagrosamanos.com](https://zagrosamanos.com)
+```bash
+git clone https://github.com/YOUR_USERNAME/zagros-amanos-manifesto.git
+cd zagros-amanos-manifesto
+git checkout -b feature/web-reader-search
 
-### What is not accepted?
+# do work
 
-❌ Hate speech edits  
-❌ Content that converts the manifesto into propaganda for a specific party/group  
-❌ Copyrighted third-party works included without permission  
-❌ Doxxing, personal info disclosure
+git add .
+git commit -m "feat: add search to web reader"
+git push origin feature/web-reader-search
 
-### If you're translating
+# open PR on GitHub
+```
 
-1. Create a folder: **`manifesto/translations/[lang-code]/`**  
-   Examples: `en`, `ku` (Kurmancî), `ar`, `fa`, `de`, `el`, `hy`, `syr`, `fr`, `es`
+Then: within 24 hours you get a welcome message + review + merge.
 
-2. You can translate section by section. No need to finish everything.  
-   Suggested filenames:
-   - `00-preface.md`
-   - `01-introduction.md`
-   - `02-chapter-one.md`
-   - …
+### What can you contribute?
 
-3. Use **Markdown format**. Not PDF, not Word.
+| Type | Folder | Issue Template |
+|------|--------|----------------|
+| 🌍 Translation | `manifesto/translations/[lang]/` | Translation |
+| ✍️ Annotation | `annotations/` | Annotation |
+| 💬 Discussion | `discussions/` or Issue | Discussion |
+| 🛠️ Software/Code | `tools/[project-name]/` | Tool/Code |
+| 🎨 Art | `assets/[type]/` | Art/Media |
+| 🛠️ Correction | anywhere | Correction |
 
-4. **Preserve structure** — keep section order from the original.
+### For code contributions
 
-5. You may add **translator notes** (`> Note: this word culturally…`).
+- **Any language** — Python, JavaScript, Rust, Go, Swift, Kotlin
+- **Any framework** — Astro, Next.js, Hugo, Flutter, React Native
+- **One rule:** write a `tools/[project]/README.md` explaining how to run
+- **License:** CC0 (public domain) — no other license accepted
+- **Dependencies:** must use compatible licenses (MIT, Apache, BSD, etc.)
 
-6. Add `WIP` to file header if translation is in progress.
+### For translations
 
-### If you're annotating
+- Create `manifesto/translations/[ISO-lang-code]/`
+- Markdown format (`00-preface.md`, `01-chapter.md`, etc.)
+- You don't have to finish everything — submit chapter by chapter
+- For translator notes: separate with `---`, start with `> Translator's note:`
 
-1. Create file in **`annotations/`**.
-2. Filename format: `yourName-topic.md` (e.g., `sarah-historicalContext.md`)
-3. Academic, personal, critical — all tones welcome.
-4. When quoting the manifesto, include section reference.
+### For art
 
-### Pull request process
-
-1. **Fork** this repository
-2. Create a new **branch**: `git checkout -b en-translation-chapter-1`
-3. Commit your changes: `git commit -m "translate chapter 1 to english"`
-4. **Push**: `git push origin en-translation-chapter-1`
-5. Open a **Pull Request** on GitHub
-6. Fill the template (opens automatically)
-7. Response time: usually 3-7 days
-
-### If a conflict arises
-
-This repo exists to share a manifesto, not to argue. If disagreement happens:
-
-1. Open an **issue**
-2. Discuss with mutual respect
-3. If still unresolved, email `com@zagrosamanos.com`
+- File under `assets/[type]/`
+- High resolution
+- Public domain or your own work
+- Filename: `your-name-topic-date.ext`
 
 ---
 
-## 📋 Quick reference / Hızlı başvuru
+## 📜 Lisans onayı / License confirmation
 
-| Action | Folder | File format |
-|---|---|---|
-| Translate | `manifesto/translations/[lang-code]/` | `.md` |
-| Annotate | `annotations/` | `.md` |
-| Long-form discuss | `discussions/` | `.md` |
-| Report typo | GitHub Issue | — |
-| Suggest edit | Pull Request | — |
+Her katkı **CC0 1.0 Universal** lisansı altında — yani kamuya armağan. Bu, sonsuza dek herkes tarafından, her amaçla kullanılabilir demektir. Telif hakkı talep edemezsin.
+
+Every contribution is under **CC0 1.0 Universal** — meaning dedicated to public domain. This means anyone, forever, can use it for any purpose. You cannot claim copyright.
+
+**PR açtığında bu lisansı kabul etmiş sayılırsın.**
+**By opening a PR, you accept this license.**
 
 ---
 
-<p align="center">
-  <em>Halklar üstü, dil üstü, çağ üstü.</em><br/>
-  <em>Beyond peoples, beyond languages, beyond ages.</em>
-</p>
+## 🚫 Kabul edilmeyenler / What we don't accept
+
+- ❌ Telifli içerik (başka bir kitap, makale, vs.)
+- ❌ Hate speech veya ayrımcılık
+- ❌ Belirli bir parti/devlet propagandası
+- ❌ Spam veya alâkasız reklam
+- ❌ Başka bir lisans (sadece CC0)
+- ❌ Çalışmayan/buggy kod (test et önce)
+
+---
+
+## 🌳 Felsefemiz / Our philosophy
+
+Bu proje **iki dağ gibi** — sırtını dayadığında yıkılmaz. Senin katkın bir taş daha. Her taş önemli.
+
+This project is **like two mountains** — when you lean on it, it doesn't fall. Your contribution is one more stone. Every stone matters.
+
+*Wek du çiyayên pişt re ye*

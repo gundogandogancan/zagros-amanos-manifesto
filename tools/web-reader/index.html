@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zagros Amanos · Manifesto</title>
+  <meta name="description" content="Zagros Amanos manifesto — public domain, free for all humanity." />
+  <link rel="icon" type="image/png" href="../../manifesto/cover/cover.png" />
+
+  <style>
+    :root {
+      --ink: #0a0807;
+      --parchment: #e8dcc4;
+      --gold: #c9a86a;
+      --muted: #8a7d65;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --ink: #faf7f0;
+        --parchment: #1a1410;
+        --gold: #8b6f31;
+        --muted: #6a5a3a;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: Georgia, "Cormorant Garamond", serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--gold);
+      opacity: 0.95;
+    }
+    header img {
+      width: 180px;
+      height: auto;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      margin: 0;
+      line-height: 1.1;
+    }
+    h1 em {
+      font-style: italic;
+      opacity: 0.85;
+    }
+    .subtitle {
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    nav.langs {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    nav.langs button {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.4rem 1.1rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+    nav.langs button:hover,
+    nav.langs button.active {
+      background: var(--gold);
+      color: var(--ink);
+    }
+    article {
+      font-size: 1.15rem;
+    }
+    article h2 {
+      color: var(--gold);
+      font-weight: 400;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    article p {
+      margin: 1.3em 0;
+    }
+    article blockquote {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin-left: 0;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .loading {
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      padding: 3rem 0;
+    }
+    footer {
+      text-align: center;
+      margin-top: 6rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gold);
+      opacity: 0.6;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .placeholder {
+      background: rgba(201, 168, 106, 0.08);
+      border: 1px dashed var(--gold);
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin: 3rem 0;
+    }
+    .placeholder code {
+      background: rgba(201, 168, 106, 0.15);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="../../manifesto/cover/cover.png" alt="Zagros Amanos" />
+      <h1>ZAGROS <em>Amanos</em></h1>
+      <p class="subtitle">Bütün insanlığın iki dağı · The two mountains of all humanity</p>
+    </header>
+
+    <nav class="langs">
+      <button class="active" data-lang="tr">Türkçe</button>
+      <button data-lang="en">English</button>
+      <button data-lang="ku">Kurmancî</button>
+      <button data-lang="ar">العربية</button>
+      <button data-lang="fa">فارسی</button>
+      <button data-lang="de">Deutsch</button>
+      <button data-lang="el">Ελληνικά</button>
+    </nav>
+
+    <article id="content">
+      <div class="loading">Yükleniyor…</div>
+    </article>
+
+    <footer>
+      <p>
+        Public Domain · CC0 · 2026<br/>
+        <a href="https://github.com/gundogandogancan/zagros-amanos-manifesto">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="https://zagrosamanos.com">zagrosamanos.com</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Minimal markdown renderer (subset: paragraphs, italics, blockquotes)
+    function mdToHtml(md) {
+      const lines = md.split("\n");
+      let html = "";
+      let inPara = false;
+      for (const raw of lines) {
+        const line = raw.trim();
+        if (!line) {
+          if (inPara) { html += "</p>"; inPara = false; }
+          continue;
+        }
+        if (line.startsWith("# ")) {
+          if (inPara) { html += "</p>"; inPara = false; }
+          html += `<h2>${line.slice(2)}</h2>`;
+        } else if (line.startsWith("> ")) {
+          if (inPara) { html += "</p>"; inPara = false; }
+          html += `<blockquote>${line.slice(2)}</blockquote>`;
+        } else {
+          if (!inPara) { html += "<p>"; inPara = true; }
+          else { html += " "; }
+          html += line
+            .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+            .replace(/_([^_]+)_/g, "<em>$1</em>");
+        }
+      }
+      if (inPara) html += "</p>";
+      return html;
+    }
+
+    async function loadLang(lang) {
+      const content = document.getElementById("content");
+      content.innerHTML = '<div class="loading">Yükleniyor…</div>';
+
+      // Try common file paths for that language
+      const paths = [
+        `../../manifesto/translations/${lang}/00-preface.md`,
+        `../../manifesto/translations/${lang}/README.md`,
+      ];
+
+      for (const path of paths) {
+        try {
+          const res = await fetch(path);
+          if (res.ok) {
+            const md = await res.text();
+            content.innerHTML = mdToHtml(md);
+            return;
+          }
+        } catch {}
+      }
+
+      // Fallback: invite to contribute
+      content.innerHTML = `
+        <div class="placeholder">
+          <h2>Bu dilde çeviri henüz yok</h2>
+          <p>Bu dilde manifestoyu çevirmeye sen başlayabilirsin.</p>
+          <p>
+            <code>manifesto/translations/${lang}/00-preface.md</code> dosyasını
+            oluştur ve GitHub'da Pull Request aç.
+          </p>
+          <p>
+            <a href="https://github.com/gundogandogancan/zagros-amanos-manifesto/issues/new?template=translation.md" style="color: var(--gold); text-decoration: underline;">
+              Çeviri için Issue aç →
+            </a>
+          </p>
+        </div>
+      `;
+    }
+
+    // Language buttons
+    document.querySelectorAll("nav.langs button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("nav.langs button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        loadLang(btn.dataset.lang);
+      });
+    });
+
+    // Initial: try Turkish (original), but we don't have markdown yet — show placeholder
+    document.getElementById("content").innerHTML = `
+      <div class="placeholder">
+        <h2>Orijinal Manifesto</h2>
+        <p>Şu an orijinal Türkçe manifesto <strong>PDF formatında</strong>.</p>
+        <p>
+          <a href="../../manifesto/original/ZAGROS-AMANOS-TR.pdf" style="color: var(--gold); text-decoration: underline;">
+            📖 PDF'i indir / oku
+          </a>
+        </p>
+        <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.75;">
+          PDF'i markdown'a çevirmek isteyen var mı?
+          <code>manifesto/translations/tr/</code> klasörüne bölüm bölüm ekleyebilirsin.
+          <br/>
+          Sonra bu reader otomatik göstermeye başlayacak.
+        </p>
+      </div>
+    `;
+  </script>
+</body>
+</html>
