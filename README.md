@@ -26,7 +26,12 @@ Bu depo, manifestoyu **özgürce paylaşmak, çevirmek, yorumlamak ve geliştirm
 - 🌍 **Çevir** — kendi dilinde yorumla (Kurmancî, Soranî, Arapça, Farsça, İngilizce, Almanca, Yunanca, Ermenice, Süryanice...)
 - ✍️ **Açıklama yaz** — `annotations/` klasörüne yorum ekle
 - 💬 **Tartış** — Issues sekmesinden konu aç
+- 🛠️ **Yazılım yap** — `tools/` altına web reader, e-book üretici, bot, mobil uygulama
+- 🎨 **Sanat üret** — `assets/` altına illüstrasyon, sesli okuma, video, fotoğraf
+- 💡 **Fikir paylaş** — Discussions tab'inde tartışma aç
 - 📤 **Paylaş** — bağlantısını ver, alıntıla, yayınla
+
+**Her şey CC0 — kamu malı.** Telif yok, izin gerekmiyor.
 
 ---
 
@@ -42,7 +47,12 @@ This repository is **open to anyone** who wants to read, translate, annotate, an
 - 🌍 **Translate** into your language (Kurdish dialects, Arabic, Persian, English, German, Greek, Armenian, Syriac…)
 - ✍️ **Annotate** — add commentary in the `annotations/` folder
 - 💬 **Discuss** — open an issue
+- 🛠️ **Build tools** — put web readers, e-book generators, bots, mobile apps under `tools/`
+- 🎨 **Make art** — illustrations, audio readings, videos, photography under `assets/`
+- 💡 **Share ideas** — open a Discussion
 - 📤 **Share** — link, quote, publish, broadcast
+
+**Everything is CC0 — public domain.** No copyright, no permission needed.
 
 ---
 
@@ -71,26 +81,39 @@ zagros-amanos-manifesto/
 ├── manifesto/
 │   ├── original/              ← Orijinal PDF (Türkçe)
 │   ├── translations/          ← Çeviriler (her dil için klasör)
-│   │   ├── en/
-│   │   ├── ku/
-│   │   ├── ar/
-│   │   ├── fa/
-│   │   ├── de/
-│   │   ├── el/
-│   │   └── hy/
+│   │   ├── en/  ku/  ar/  fa/  de/  el/  hy/  ...
 │   └── cover/                 ← Kapak görseli
 │
 ├── annotations/               ← Yorumlar, akademik notlar
-│   └── README.md
-│
 ├── discussions/               ← Uzun-form tartışmalar
-│   └── README.md
+│
+├── tools/                     ← 🛠️ Yazılım, web aracı, bot, mobil uygulama
+│   └── README.md              ← Hangi tür projeler eklenebilir
+│
+├── assets/                    ← 🎨 İllüstrasyon, ses, video, fotoğraf
+│   ├── illustrations/  audio/  video/  photography/  typography/
 │
 ├── CONTRIBUTING.md            ← Nasıl katkıda bulunulur
 ├── CODE_OF_CONDUCT.md         ← Topluluk kuralları
 ├── LICENSE                    ← CC0 1.0 (Public Domain)
 └── README.md                  ← Bu dosya
 ```
+
+## 🛠️ Geliştiriciler için — Build Anything
+
+Manifesto bir **metin** — ama insanlar bu metni okuyabilsin, çevirebilsin, paylaşabilsin diye **araçlara** ihtiyaç var. İşte fikirler:
+
+- 📖 **Web Reader** — Markdown'ları güzel tek bir siteye dönüştüren static site generator
+- 🔍 **Search** — Tüm çeviriler içinde aranabilir indeks
+- 📚 **E-book Builder** — EPUB, MOBI, PDF otomatik export
+- 🎙️ **Audiobook** — TTS veya insan sesi kayıtları
+- 🌐 **Translation Aligner** — Yan yana karşılaştırma aracı
+- 🤖 **Bots** — Discord, Telegram, Twitter günlük alıntı botları
+- 🧩 **Browser Extension** — Sayfa okurken not alma
+- 📱 **Mobile App** — Manifesto okuyucu (iOS, Android, React Native, Flutter — özgürce)
+- 📊 **Data Analysis** — Kelime sıklığı, tema haritası, görselleştirme
+
+Her teknoloji serbest. Her dil serbest. Tek kural: **CC0 lisansı ile katkıda bulun.**
 
 ---
 
